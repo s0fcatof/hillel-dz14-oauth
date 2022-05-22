@@ -42,12 +42,12 @@ return new class extends Migration
     public function down()
     {
         Schema::table('notification_subscription', function (Blueprint $table) {
-            $table->dropForeign('subscription_id');
-            $table->dropForeign('notification_id');
+            $table->dropForeign(['subscription_id']);
+            $table->dropForeign(['notification_id']);
         });
 
         Schema::table('notifications', function (Blueprint $table) {
-            $table->dropForeign('card_id');
+            $table->dropForeign(['card_id']);
         });
 
         Schema::dropIfExists('notification_subscription');

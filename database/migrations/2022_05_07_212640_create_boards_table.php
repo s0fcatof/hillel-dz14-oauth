@@ -41,12 +41,12 @@ return new class extends Migration
     public function down()
     {
         Schema::table('board_user', function (Blueprint $table) {
-            $table->dropForeign('user_id');
-            $table->dropForeign('board_id');
+            $table->dropForeign(['user_id']);
+            $table->dropForeign(['board_id']);
         });
 
         Schema::table('boards', function (Blueprint $table) {
-            $table->dropForeign('author_id');
+            $table->dropForeign(['author_id']);
         });
 
         Schema::dropIfExists('board_user');
